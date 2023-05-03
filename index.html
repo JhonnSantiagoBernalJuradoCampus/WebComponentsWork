@@ -9,11 +9,28 @@
 </head>
 <body>
     <my-header></my-header>
-    <my-section></my-section>
+    <section>
+        <article>
+            <my-section></my-section>
+            <my-selection></my-selection>
+        </article>
+        <my-nav></my-nav>
+    </section>
+    
     <style>
         *{
             margin: 0;
             padding: 0;
+        }
+        section{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        article{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
     </style>
 </body>
