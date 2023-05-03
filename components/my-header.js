@@ -2,7 +2,7 @@ let pathName = new URL(import.meta.url).pathname;
 let name = pathName.split("/").pop().replace(".js", "");
 export default class myHeader extends HTMLElement{
     static async components(){
-      return await(await fetch(pathName.replace(".js", ".html"))).text();
+        return await(await fetch(pathName.replace(".js", ".html"))).text();
     }
 
     constructor(){
@@ -16,4 +16,4 @@ export default class myHeader extends HTMLElement{
     }
 }
 myHeader.components()
-customElements.define("my-header", myHeader)
+customElements.define(name, myHeader)
