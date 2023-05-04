@@ -1,8 +1,8 @@
-let pathName = new URL(import.meta.url).pathname;
-let name = pathName.split("/").pop().replace(".js", "");
+import config from "../config.js";
 export default class mySection extends HTMLElement{
+    static url = import.meta.url
     static async components(){
-        return await(await fetch(pathName.replace(".js", ".html"))).text();
+        return await(await fetch(config.uri(mySection.url))).text();
     }
 
     constructor(){
@@ -14,5 +14,4 @@ export default class mySection extends HTMLElement{
         console.log("Etiqueta renderizada y configurada");
     }
 }
-mySection.components()
-customElements.define(name, mySection)
+customElements.define(config.name(mySection.url), mySection)

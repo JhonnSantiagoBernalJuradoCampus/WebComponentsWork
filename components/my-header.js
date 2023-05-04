@@ -15,5 +15,4 @@ export default class myHeader extends HTMLElement{
         console.log("Etiqueta renderizada y configurada");
     }
 }
-myHeader.components()
 customElements.define(config.name(myHeader.url), myHeader)

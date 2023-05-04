@@ -1,8 +1,8 @@
-let pathName = new URL(import.meta.url).pathname;
-let name = pathName.split("/").pop().replace(".js", "");
+import config from "../config.js";
 export default class mySelection extends HTMLElement{
+    static url = import.meta.url
     static async components(){
-        return await(await fetch(pathName.replace(".js", ".html"))).text();
+        return await(await fetch(config.uri(mySelection.url))).text();
     }
 
     constructor(){
@@ -15,4 +15,4 @@ export default class mySelection extends HTMLElement{
     }
 }
 mySelection.components()
-customElements.define(name, mySelection)
+customElements.define(config.name(mySelection.url), mySelection)
