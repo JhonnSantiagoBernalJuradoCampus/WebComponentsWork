@@ -9,8 +9,19 @@ export default class myHeader extends HTMLElement{
         super();
         //El attachShadow lo reserva lo aisla
         this.attachShadow({mode: "open"});
+        
+    }
+    handleEvent(e){
+        (e.type === "click") ? this.enviarWorker(e) : undefined
+    }
+    enviarWorker(e){
+        console.log(`El ${this.myBtn.value} ha sido tocado`);
+    }
+    connectedCallback(){
         Promise.resolve(myHeader.components()).then(html=>{
             this.shadowRoot.innerHTML = html
+            this.myBtn = this.shadowRoot.querySelector(".btn")
+            this.myBtn.addEventListener("click", this.handleEvent.bind(this))
         })
         console.log("Etiqueta renderizada y configurada");
     }
