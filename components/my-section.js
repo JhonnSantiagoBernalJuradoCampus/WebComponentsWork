@@ -4,7 +4,6 @@ export default class mySection extends HTMLElement{
     static async components(){
         return await(await fetch(config.uri(mySection.url))).text();
     }
-
     constructor(){
         super();
         this.attachShadow({mode: "open"});
